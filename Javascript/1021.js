@@ -1,0 +1,28 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+let money = Number(lines.shift());
+let aux = parseInt(money);
+console.log("NOTAS:");
+console.log("%d nota(s) de R$ 100.00", parseInt(aux/100));
+aux %= 100;
+console.log("%d nota(s) de R$ 50.00", parseInt(aux/50));
+aux %= 50;
+console.log("%d nota(s) de R$ 20.00", parseInt(aux/20));
+aux %= 20;
+console.log("%d nota(s) de R$ 10.00", parseInt(aux/10));
+aux %= 10;
+console.log("%d nota(s) de R$ 5.00", parseInt(aux/5));
+aux %= 5;
+console.log("%d nota(s) de R$ 2.00", parseInt(aux/2));
+console.log("MOEDAS:");
+console.log("%d moeda(s) de R$ 1.00", parseInt(aux%2));
+aux = parseInt((money - parseInt(money)) * 100);
+console.log("%d moeda(s) de R$ 0.50", parseInt(aux/50));
+aux %= 50;
+console.log("%d moeda(s) de R$ 0.25", parseInt(aux/25));
+aux %= 25;
+console.log("%d moeda(s) de R$ 0.10", parseInt(aux/10));
+aux %= 10;
+console.log("%d moeda(s) de R$ 0.05", parseInt(aux/5));
+console.log("%d moeda(s) de R$ 0.01", parseInt(aux%5));
