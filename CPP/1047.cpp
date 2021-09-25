@@ -5,37 +5,25 @@ using namespace std;
 int main()
 {
 
-    int start, start_minute, end, end_minute;
-    //cin >> start >> start_minute >> end >> end_minute;
+    int a, b, c, d;
+    cin >> a >> b >> c >> d;
 
-    int list[4] = { 10, 12, 12, 10 };
+    int start = a * 60 + b;
+    int end = c * 60 + d;
 
-    start = list[0];
-    start_minute = list[1];
-    end = list[2];
-    end_minute = list[3];
+    int time = end - start;
 
-    if (start == end && start_minute == end_minute) {
-        cout << "O JOGO DUROU 24 HORA(S) E 0 MINUTO(S)\n";
-    } else {
-        int hours = (start > end)
-            ? (24 - start) + end
-            : end - start;
-
-        int minutes = (start_minute > end_minute)
-            ? start_minute - end_minute
-            : end_minute - start_minute;
-
-        if (hours == 1 && start_minute > end_minute) {
-            hours -= 1;
-            minutes = 60 - minutes;
-        } else if (hours == 0 && start_minute > end_minute) {
-            hours = 23;
-            minutes = 60 - minutes;
-        }
-
-        cout << "O JOGO DUROU " << hours << " HORA(S) E " << minutes << " MINUTO(S)\n";
+    if (time == 0) {
+        cout << "O JOGO DUROU 24 HORA(S) E 0 MINUTO(S)" << endl;
+        return 0;
+    } else if (time < 0) {
+        time = 24 * 60 + time;
     }
+
+    int hours = time / 60;
+    int minutes = time % 60;
+
+    cout << "O JOGO DUROU " << hours << " HORA(S) E " << minutes << " MINUTO(S)" << endl;
 
     return 0;
 }
