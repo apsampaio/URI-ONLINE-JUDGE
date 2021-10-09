@@ -1,0 +1,1 @@
+SELECT P.city FROM providers P ORDER BY city

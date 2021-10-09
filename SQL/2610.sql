@@ -1,0 +1,1 @@
+SELECT CAST(AVG(P.price) AS DECIMAL(10, 2)) AS price FROM products P
