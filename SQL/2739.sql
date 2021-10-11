@@ -1,0 +1,1 @@
+SELECT L.name, CAST(EXTRACT(DAY FROM L.payday) AS INT) AS "day" FROM loan L
